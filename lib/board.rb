@@ -1,0 +1,59 @@
+class Board
+
+attr_accessor :cells
+
+def initialize
+  reset!
+end
+
+def reset!
+  @cells = Array.new(9, " ")
+end
+
+  def display
+    puts " #{@cells[0]} | #{@cells[1]} | #{@cells[2]} "
+    puts "-----------"
+    puts " #{@cells[3]} | #{@cells[4]} | #{@cells[5]} "
+    puts "-----------"
+    puts " #{@cells[6]} | #{@cells[7]} | #{@cells[8]} "
+  end
+
+  def position(input)
+    @cells[input.to_i - 1]
+  end
+
+   def update(input, token = "X")
+     position(input)
+
+  end
+
+  def full?
+    if !@cells.any?(" ")
+      true
+    else
+      false
+    end
+  end
+
+  def valid_move?(index)
+   if !position_taken?(index) && (0..8).include?(index)
+     true
+   else
+     false
+   end
+  end
+
+ def turn_count
+    @cells.count{|square| square != " " }
+  end
+
+  def taken?(input)
+   index = position(input)
+   if index.include?("X") || index.include?("O")
+     true
+   else
+     false
+   end
+   end
+
+end
