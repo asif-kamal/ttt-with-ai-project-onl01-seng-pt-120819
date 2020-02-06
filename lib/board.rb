@@ -22,9 +22,9 @@ end
     @cells[input.to_i - 1]
   end
 
-   def update(input, token = "X")
-     position(input)
-
+   def update(input, token)
+     index = position(input)
+     index = player.token
   end
 
   def full?
@@ -35,8 +35,8 @@ end
     end
   end
 
-  def valid_move?(index)
-   if !position_taken?(index) && (0..8).include?(index)
+  def valid_move?(input)
+   if !taken?(input) && input.to_i.between?(1,9)
      true
    else
      false
