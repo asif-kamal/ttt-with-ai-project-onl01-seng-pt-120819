@@ -22,9 +22,9 @@ end
     @cells[input.to_i - 1]
   end
 
-   def update(input, token)
-     index = position(input)
-     index = player.token
+   def update(input, player)
+       index = input.to_i - 1
+       @cells[index] = player.token
   end
 
   def full?
