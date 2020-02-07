@@ -1,9 +1,13 @@
 module Players
-class Human < Player
+class Computer < Player
 
-  def move(input)
-    puts "Please enter your move."
-    input = gets
+  def move(board)
+    board.cells.each_with_index{|e, index|
+      if e == " "
+        return "#{index + 1}"
+      end
+     }
   end
+
 end
 end

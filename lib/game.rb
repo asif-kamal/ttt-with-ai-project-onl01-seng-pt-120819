@@ -50,11 +50,10 @@ end
   end
 
   def turn
-    puts "Please enter your move."
-
-    user_input = current_player.move(board)
+    puts "Please enter a number 1-9:"
+    user_input = current_player.move(@board)
     if @board.valid_move?(user_input)
-      @board.update(@user_input, current_player)
+      @board.update(user_input, current_player)
       else
         puts "Please enter a number 1-9:"
         turn
